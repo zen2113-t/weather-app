@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="card">
+    <div class="search">
+        <input type="text" placeholder="Enter city name" spellcheck="false">
+     <button><img src="1.wp.jpeg"></button> 
+    </div>
+    <div class="weather">
+        <img src="cloud_18257773.png" class="weather icon">
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h2> 
+        
+<div class="details">
+    <div class="col">
+        <img src="wind_11654243 (1).png" class="wind icon" alt="Humidity">
+        <div>
+            <p class="humidity">Humidity</p>
+            <p>50%</p>
+        </div>
+    </div>
+
+    <div class="col">
+        <img src="windy_11654242 (1).png" class="windy icon" alt="Wind">
+        <div>
+            <p class="wind-speed">10 km/h</p>
+            <p>Wind Speed</p>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        const apikey = "562ff6a012b47502f1a10569172a2095";
+        const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        async function checkWeather(city){
+            const response = await fetch(apiurl +`&appid=${apikey}`);
+            var data = await response.json();
+
+            console.log(data);
+
+        }
+
+        checkWeather();
+    </script>
+    
+</body>
+</html>
